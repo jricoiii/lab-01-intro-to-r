@@ -69,6 +69,7 @@ inspecting the *Packages* tab in the lower right panel of RStudio.
 ```{r install-packages, message = FALSE, eval=FALSE}
 install.packages("tidyverse")
 install.packages("devtools")
+library(devtools)
 install_github("OpenIntroStat/openintro-r-package")
 ```
 
@@ -78,7 +79,6 @@ the `library` function. Run the following  lines in your console.
 
 ```{r load-packages, message = FALSE, eval=TRUE}
 library(tidyverse)
-library(devtools)
 library(openintro)
 ```
 
@@ -401,7 +401,7 @@ steps, but for present day birth records in the United States. Load the
 present day data with the following command.
 
 ```{r load-present-data}
-data(present)
+present <- readRDS("/cloud/project/present.rds")
 ```
 
 The data are stored in a data frame called `present`.
