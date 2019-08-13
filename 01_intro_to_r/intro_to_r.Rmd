@@ -12,7 +12,9 @@ output:
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 library(tidyverse)
-library(openintro)
+#install.packages("devtools")  #enter in console
+library(devtools)
+install_github("OpenIntroStat/openintro-r-package")
 ```
 
 
