@@ -76,7 +76,7 @@ install.packages("openintro")
 
 You may need to select a server from which to download; any of them will work.
 Next, you need to load these packages in your working environment. We do this with
-the `library` function. Run the following three lines in your console.
+the `library` function. Run the following  lines in your console.
 
 ```{r load-packages, message = FALSE, eval=TRUE}
 library(tidyverse)
