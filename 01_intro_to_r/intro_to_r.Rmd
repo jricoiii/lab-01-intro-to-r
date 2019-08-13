@@ -12,9 +12,6 @@ output:
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 library(tidyverse)
-#install.packages("devtools")  #enter in console
-library(devtools)
-install_github("OpenIntroStat/openintro-r-package")
 ```
 
 
@@ -71,7 +68,8 @@ inspecting the *Packages* tab in the lower right panel of RStudio.
 
 ```{r install-packages, message = FALSE, eval=FALSE}
 install.packages("tidyverse")
-install.packages("openintro")
+install.packages("devtools")
+install_github("OpenIntroStat/openintro-r-package")
 ```
 
 You may need to select a server from which to download; any of them will work.
@@ -80,6 +78,7 @@ the `library` function. Run the following  lines in your console.
 
 ```{r load-packages, message = FALSE, eval=TRUE}
 library(tidyverse)
+library(devtools)
 library(openintro)
 ```
 
