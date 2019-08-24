@@ -102,20 +102,18 @@ present <- readRDS("/cloud/project/present.rds")
 
 ```
 
-
-7.  In what year did we see the most total number of births in the U.S.? *Hint:*
-    First calculate the totals and save it as a new variable. Then, sort your
-    dataset in descending order based on the total column. You can do this
-    interactively in the data viewer by clicking on the arrows next to the 
-    variable names. To include the sorted result in your report you will need 
-    to use two new functions: `arrange` (for sorting). We can arrange the data 
-    in a descending order with another function: `desc` (for descending order).
-    The sample code is provided below.
+7.  In what year did we see the most total number of births in the U.S.?
     
-```{r sample-arrange, eval=FALSE}
-present %>%
-  arrange(desc(total))
+```{r}
+
 ```
+
+8.  Create a plot of total births over time.  Comment on what do you find interesting?  
+
+```{r}
+
+```
+
 
 These data come from reports by the Centers for Disease Control. You can learn more about them
 by bringing up the help file using the command `?present`.

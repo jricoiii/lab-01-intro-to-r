@@ -1600,10 +1600,9 @@ div.tocify {
 <li><p>What years are included in this data set? What are the dimensions of the data frame? What are the variable (column) names?</p></li>
 <li><p>How do these counts compare to Arbuthnot’s? Are they of a similar magnitude?</p></li>
 <li><p>Make a plot that displays the proportion of boys born over time. What do you see? Does Arbuthnot’s observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response. <em>Hint:</em> You should be able to reuse your code from Exercise 3 above, just replace the dataframe name.</p></li>
-<li><p>In what year did we see the most total number of births in the U.S.? <em>Hint:</em> First calculate the totals and save it as a new variable. Then, sort your dataset in descending order based on the total column. You can do this interactively in the data viewer by clicking on the arrows next to the variable names. To include the sorted result in your report you will need to use two new functions: <code>arrange</code> (for sorting). We can arrange the data in a descending order with another function: <code>desc</code> (for descending order). The sample code is provided below.</p></li>
+<li><p>In what year did we see the most total number of births in the U.S.?</p></li>
+<li><p>Create a plot of total births over time. Comment on what do you find interesting?</p></li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">present <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total))</a></code></pre></div>
 <p>These data come from reports by the Centers for Disease Control. You can learn more about them by bringing up the help file using the command <code>?present</code>.</p>
 <div id="license">
 <p>This is a product of OpenIntro that is released under a <a href="http://creativecommons.org/licenses/by-sa/3.0">Creative Commons Attribution-ShareAlike 3.0 Unported</a>. This lab was adapted for OpenIntro by Andrew Bray and Mine Çetinkaya-Rundel from a lab written by Mark Hansen of UCLA Statistics.</p>
