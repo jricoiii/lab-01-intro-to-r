@@ -82,7 +82,7 @@ Step 3: Calculate **mean** of `boy_ratio`
 Load the present day data with the following command.
 
 ```{r load-present-data}
-present <- readRDS("/cloud/project/present.rds")
+natality <- readr::read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4V0JbnhhXh5Ecch1CEBExXEL-MKl-J8TzfOLdFlWoAQ3oCQ2-xCPS5WKPNWraRmwEUiRFSzQclpp/pub?gid=0&single=true&output=csv")
 ```
 
 4.  What years are included in this data set? What are the dimensions of the 
