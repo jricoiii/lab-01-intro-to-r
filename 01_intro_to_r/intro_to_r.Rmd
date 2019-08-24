@@ -401,10 +401,10 @@ steps, but for present day birth records in the United States. Load the
 present day data with the following command.
 
 ```{r load-present-data}
-present <- readRDS("/cloud/project/present.rds")
+natality <- readr::read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4V0JbnhhXh5Ecch1CEBExXEL-MKl-J8TzfOLdFlWoAQ3oCQ2-xCPS5WKPNWraRmwEUiRFSzQclpp/pub?gid=0&single=true&output=csv")
 ```
 
-The data are stored in a data frame called `present`.
+The data are stored in a data frame called `natality`.
 
 To find the minimum and maximum values of columns, you can use the functions
 `min` and `max` within a `summarize()` call, which you will learn more 
@@ -438,7 +438,7 @@ arbuthnot %>%
     The sample code is provided below.
     
 ```{r sample-arrange, eval=FALSE}
-present %>%
+natality %>%
   arrange(desc(total))
 ```
 
