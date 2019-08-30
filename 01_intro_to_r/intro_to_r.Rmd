@@ -11,45 +11,31 @@ output:
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
-library(tidyverse)
 ```
 
 
 ## The RStudio Interface
+The main goal of this lab is to introduce you to R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions. 
 
-The goal of this lab is to introduce you to R and RStudio, which you'll be using
-throughout the course both to learn the statistical concepts discussed in the 
-course and to analyze real data and come to informed conclusions. To clarify
-which is which: R is the name of the programming language itself and RStudio 
-is a convenient interface.
+An additional goal is to introduce you to git and GitHub, which is the collaboration and version control system that we will be using throughout the course.
 
-As the labs progress, you are encouraged to explore beyond what the labs dictate;
-a willingness to experiment will make you a much better programmer. Before we 
-get to that stage, however, you need to build some basic fluency in R. Today we
-begin with the fundamental building blocks of R and RStudio: the interface, 
-reading in data, and basic commands.
+As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.
 
-Go ahead and launch RStudio. You should see a window that looks like the image 
-shown below.
+And to make versioning simpler, this is a solo lab. Additionally, we want to make sure everyone gets a significant amount of time at the steering wheel. Next week you'll learn about collaborating on GitHub and produce a single lab report for your team.
 
-![](more/r-interface-2016.png)
-<br>
+# Getting started
 
+Each of your assignments will begin with the following steps. You saw these once in class yesterday, they're outlined in detail here again. Going forward each lab will start with a "Getting started" section but details will be a bit more sparse than this. You can always refer back to this lab for a detailed list of the steps involved for getting started with an assignment.
 
-The panel on the lower left is where the action happens. It's called the *console*. 
-Everytime you launch RStudio, it will have the same text at the top of the 
-console telling you the version of R that you're running. Below that information
-is the *prompt*. As its name suggests, this prompt is really a request: a 
-request for a command. Initially, interacting with R is all about typing commands
-and interpreting the output. These commands and their syntax have evolved over
-decades (literally) and now provide what many users feel is a fairly natural way
-to access data and organize, describe, and invoke statistical computations.
+- Click on the assignment link that you should have received in your email to create your GitHub repository (which we'll refer to as "repo" going forward) for the assignment. This repo contains a template you can build on to complete your assignment.
 
-The panel in the upper right contains your *environment* as well as a history of 
-the commands that you've previously entered. 
+- On GitHub, click on the green **Clone or download** button, select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
 
-Any plots that you generate will show up in the panel in the lower right corner. 
-This is also where you can browse your files, access help, manage packages, etc.
+- Go to RStudio Cloud and into the course workspace. Create a **New Project from Git Repo**. You will need to click on the down arrow next to the **New Project** button to see this option.
+
+- Copy and paste the URL of your assignment repo into the dialog box:
+
+- Hit OK, and you're good to go!
 
 ### R Packages
 
@@ -61,24 +47,24 @@ and many others in the future, we will use the following R packages:
 - **openintro**: for data and custom functions with the OpenIntro resources
 
 If these packages are not already available in your R environment, 
-install them by typing the following three lines of code into
-the console of your RStudio session, pressing the enter/return key after each one. 
+install them by running (**green sideways triangle**) the following three lines of codes.
 Note that you can check to see which packages (and which versions) are installed by
 inspecting the *Packages* tab in the lower right panel of RStudio. 
 
 ```{r install-packages, message = FALSE, eval=FALSE}
 install.packages("tidyverse")
+install.packages("readr")
 install.packages("devtools")
 library(devtools)
 install_github("OpenIntroStat/openintro-r-package")
 ```
 
-You may need to select a server from which to download; any of them will work.
 Next, you need to load these packages in your working environment. We do this with
 the `library` function. Run the following  lines in your console.
 
 ```{r load-packages, message = FALSE, eval=TRUE}
 library(tidyverse)
+library(readr)
 library(openintro)
 ```
 
@@ -88,6 +74,62 @@ them each time you relaunch RStudio.
 The Tidyverse packages share common philosophies and are designed to 
 work together. You can find more about the packages in the tidyverse at http://tidyverse.org/.
 
+# Housekeeping
+
+Before we can get started we need to take care of some required housekeeping. Specifically,  we need to configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your email address and your name.
+
+To do so, follow these steps:
+
+- Go to the *Terminal* pane
+- Type the following two lines of code, replacing the information in the quotation marks with your info:
+
+```{bash eval=FALSE}
+git config --global user.email "your email"
+git config --global user.name "your name"
+```
+
+For example, for me these are
+
+```{bash eval=FALSE}
+git config --global user.email "jricoiii@gmail.com"
+git config --global user.name "Jose Rico"
+```
+
+To confirm that the changes have been implemented, run the following
+
+```{bash eval=FALSE}
+git config --global user.email
+git config --global user.name
+```
+## Project name: 
+
+Currently your project is called *Untitled Project*. Update the name of your project to be "lab-01-intro-to-r".
+
+## YAML: 
+
+Open the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document.
+
+```{r yaml-raw-to-rendered, fig.fullwidth=TRUE, echo = FALSE}
+knitr::include_graphics("img/yaml-raw-to-rendered.png")
+```
+
+## Commiting changes:
+
+Then Go to the Git pane in your RStudio.
+
+If you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes. If you're happy with these changes, write "Update author name" in the **Commit message** box and hit **Commit**.
+
+```{r update-author-name-commit, fig.fullwidth=TRUE, echo = FALSE}
+knitr::include_graphics("img/update-author-name-commit.png")
+```
+
+You don't have to commit after every change, this would get quite cumbersome. You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration. In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.
+
+## Pushing changes: 
+
+Now that you have made an update and committed this change, it's time to push these changes to the web! Or more specifically, to your repo on GitHub. Why? So that others can see your changes. And by others, we mean the course teaching team (your repos in this course are private to you and us, only). 
+
+In order to push your changes to GitHub, click on **Push**. This will prompt a dialogue box where you first need to enter your user name, and then your password. This might feel cumbersome. Bear with me... We *will* teach you how to save your password so you don't have to enter it every time. But for this one assignment you'll have to manually enter each time you push in order to gain some experience with it.
 
 ### Creating a reproducible lab report
 
@@ -401,7 +443,7 @@ steps, but for present day birth records in the United States. Load the
 present day data with the following command.
 
 ```{r load-present-data}
-natality <- readr::read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4V0JbnhhXh5Ecch1CEBExXEL-MKl-J8TzfOLdFlWoAQ3oCQ2-xCPS5WKPNWraRmwEUiRFSzQclpp/pub?gid=0&single=true&output=csv")
+natality <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4V0JbnhhXh5Ecch1CEBExXEL-MKl-J8TzfOLdFlWoAQ3oCQ2-xCPS5WKPNWraRmwEUiRFSzQclpp/pub?gid=0&single=true&output=csv")
 ```
 
 The data are stored in a data frame called `natality`.
